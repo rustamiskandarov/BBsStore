@@ -56,7 +56,7 @@ class BbsController extends Controller
     }
 
     public function update(Request $request, Bb $bb){
-        $validated = $request->validate(self::BB_VALIDATOR, self::BB_ERROR_MESSAGES);
+       $validated = $request->validate(self::BB_VALIDATOR, self::BB_ERROR_MESSAGES);
         $bb->fill([
             'title'=>$validated['title'],
             'slug'=>Str::substr(Str::lower(preg_replace('/\s+/', '-', $request->title)),0,-1),

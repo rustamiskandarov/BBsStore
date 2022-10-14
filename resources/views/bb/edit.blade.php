@@ -51,7 +51,10 @@
 
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Выбирите фото объявления</label>
-                    <input name="img" class="form-control" type="file" id="formFile">
+                    <input name="img" class="form-control @error('img') is-invalid @enderror" type="file" id="formFile">
+                    @error('img')
+                    <span class="invalid-feedback"><strong>{{$message}}</strong></span>
+                    @enderror
                 </div>
                 <button type="submit" class="btn btn-primary">Сохранить</button>
             </form>
